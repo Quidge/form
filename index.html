@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>index2</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	</head>
+	<body class="bg-dark">
+	<header class="header"></header>
+	<main>
+		<div class="container bg-dark">
+			<div class="row">
+				<div class="col-8 bg-light mx-auto py-2 px-5">
+					<!-- JS inserts progress bar here -->
+					<form action="" id="measurementsForm">
+						<section class="row" name="prequisites">
+							<div class="col mx-auto section_content">
+								<legend class="h3">Pre-reqs</legend>
+								<div class="row sectionDescription">
+									<div class="col ">
+										<p>Three things are necessary to complete this form: your <span class="font-weight-bold">suit measurements</span>, <span class="font-weight-bold">dress shirt measurements</span>, and an <span class="font-weight-bold">email address</span> that reports can be sent reports to. That's it.</p>
+										<p>Measurements for sportcoats, sweaters, pants, casual shirts, whatever, will be extrapolated from suit and dress shirt measurements that you provide.</p>
+										<p>You <span class="font-weight-bold">will</span> have the opportunity to review and fine tune those extrapolations, but they're generated for your convenience.</p>
+									</div>
+								</div>
+								<div class="row formInputs">
+									<div class="col">
+										<fieldset>
+											<p>Let's get started.</p>
+											<div class="form-group row">
+												<label for="emailInput" class="col-form-label col-2">Email</label>
+												<div class="col-8"><input type="email" id="emailInput" placeholder="johndoe@acme.com" class="form-control"></div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section name="base" class="row">
+							<div class="col mx-auto section_content">
+								<legend class="h3">Base Measurements</legend>
+								<div class="row sectionDescription">
+									<div class="col">
+										<p>Please give your measurements for suits and dress shirts. These measurements form your "base" that all other measurements can be inferred from.</p>
+									</div>
+								</div>
+								<div class="row formInputs">
+									<div class="col">
+										<fieldset>
+											<div class="row">
+												<div class="col-2">
+													<h6>Clothing Category</h6>
+												</div>
+												<div class="col-4">
+													<h6>Measurement item</h6>
+												</div>
+												<div class="col-3">
+													<h6>Measurement value (in)</h6>
+												</div>
+												<div class="col-3">
+													<h6>Tolerance (in)</h6>
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Suit</label>
+												<label class="col-4 col-form-label-sm">Jacket Chest Flat</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-chest_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-chest_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket Shoulders</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-shoulders-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-shoulders-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket Sleeve</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-sleeve-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-sleeve-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket Waist (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-waist_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-waist_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket length</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-length-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-jacket-length-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant waist (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-waist_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-waist_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant hips (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-hips_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-hips_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant inseam</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-inseam-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-inseam-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant rise</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-rise-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-rise-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant leg opening (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-cuff_width-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="suit-pant-cuff_width-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                    End suit -->
+											<!--                    Begin dress shirt -->
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Dress shirt</label>
+												<label class="col-4 col-form-label-sm">Chest Flat</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="dress_shirt-shirt-chest_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="dress_shirt-shirt-chest_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Sleeve (from shoulder)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="dress_shirt-shirt-sleeve-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="dress_shirt-shirt-sleeve-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Shoulders</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="dress_shirt-shirt-shoulders-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="dress_shirt-shirt-shoulders-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                    End dress shirt -->
+										</fieldset>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section name="extrapolate" class="row">
+							<div class="col mx-auto section_content">
+								<legend class="h3">Extrapolated Measurements</legend>
+								<div class="row sectionDescription">
+									<div class="col">
+										<div class="row">
+											<div class="col">
+												<p>The measurements filled here can be automatically filled in based on measurements entered previously in the "Base Measurements" fields. Click the 'Extrapolate' button to do so.</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col pb-3">
+												<button id="whatthefuck" type='button' class="btn btn-primary">Extrapolate</button>
+												<span class="pl-1 text-info">Fields that have already been filled in will not be overwritten.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row formInputs">
+									<div class="col">
+										<fieldset>
+											<div class="row">
+												<div class="col-2">
+													<h6>Clothing Category</h6>
+												</div>
+												<div class="col-4">
+													<h6>Measurement item</h6>
+												</div>
+												<div class="col-3">
+													<h6>Measurement value (in)</h6>
+												</div>
+												<div class="col-3">
+													<h6>Tolerance (in)</h6>
+												</div>
+											</div>
+											<!--                        Begin sportcoat -->
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Sportcoat</label>
+												<label class="col-4 col-form-label-sm">Jacket Chest Flat</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-chest_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-chest_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket Shoulders</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-shoulders-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-shoulders-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket Sleeve</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-sleeve-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-sleeve-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket Waist (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-waist_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-waist_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Jacket length</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-length-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sportcoat-jacket-length-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                        End sportcoat -->
+											<!--                        Begin coats & jackets -->
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Coats & Jackets</label>
+												<label class="col-4 col-form-label-sm">Chest Flat</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="coats_and_jackets-jacket-chest_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="coats_and_jackets-jacket-chest_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Shoulders</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="coats_and_jackets-jacket-shoulders-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="coats_and_jackets-jacket-shoulders-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Sleeve</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="coats_and_jackets-jacket-sleeve-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="coats_and_jackets-jacket-sleeve-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                        End coats & jackets -->
+											<!--                        Begin casual shirt -->
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Casual shirt</label>
+												<label class="col-4 col-form-label-sm">Chest Flat</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="casual_shirt-shirt-chest_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="casual_shirt-shirt-chest_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Sleeve (from shoulder)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="casual_shirt-shirt-sleeve-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="casual_shirt-shirt-sleeve-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Shoulders</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="casual_shirt-shirt-shoulders-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="casual_shirt-shirt-shoulders-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                    End casual shirt -->
+											<!--                    Begin sweater -->
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Sweater</label>
+												<label class="col-4 col-form-label-sm">Chest Flat</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sweater-sweater-chest_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sweater-sweater-chest_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Sleeve (from shoulder)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sweater-sweater-sleeve-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sweater-sweater-sleeve-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Shoulders</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sweater-sweater-shoulders-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="sweater-sweater-shoulders-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                    End sweater -->
+											<!--                    Begin pants -->
+											<div class="form-row">
+												<label class="col-2 col-form-label-sm">Pant</label>
+												<label class="col-4 col-form-label-sm">Pant waist (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-waist_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-waist_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant hips (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-hips_flat-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-hips_flat-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant inseam</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-inseam-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-inseam-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant rise</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-rise-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-rise-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<div class="form-row">
+												<label class="col-4 offset-2 col-form-label-sm">Pant leg opening (flat)</label>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-cuff_width-measurement" placeholder="measurement">
+												</div>
+												<div class="col-3">
+													<input type="text" pattern="[\d]*\.?[\d]+" class="form-control-sm" id="pant-pant-cuff_width-tolerance" placeholder="tolerance">
+												</div>
+											</div>
+											<!--                    End Pants -->
+										</fieldset>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section name="review and submit" class="row">
+							<div class="col mx-auto section_content">
+								<legend class="h3">Review and Submit</legend>
+								<div class="row sectionDescription">
+									<div class="col">
+										<p>It's time to review. Here is a summary of what we've gathered so far.</p>
+									</div>
+								</div>
+								<div class="row formInputs">
+									<div class="col">
+										<fieldset>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">You want to see <span class="clothing_category_specific">suit</span> listings where the <span class="clothing_category_specific">jacket</span>...</p>
+												</div>
+												<div class="col-8" data-stupid_master="suit" data-clothing_type="jacket">
+													<div class="row summary measurement-info" data-measurement_type="chest_flat">
+														<p class="mb-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-type">chest (armpit to armpit, taken flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="shoulders">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;
+															<span class="summary measurement-type">the shoulders</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="waist_flat">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">jacket waist (measured flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="sleeve">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">sleeve (from shoulder seam to cuff)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="length">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">length (back of collar to hem)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">and where the <span class="clothing_category_specific">pants</span> for that <span class="clothing_category_specific">suit</span> have...</p>
+												</div>
+												<div class="col-7" data-stupid_master="suit" data-clothing_type="pant">
+													<div class="row summary measurement-info" data-measurement_type="waist_flat">
+														<p class="my-0">
+															a&#32;
+															<span class="summary measurement-type">waist (measured flat)</span>
+															&#32;that measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															&#32;<span class="summary measurement-conjunction">and</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="hips_flat">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">hips (measured flat)</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="inseam">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">inseam</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="rise">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">rise</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="cuff_width">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">cuff width (measured flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">You want to see listings for <span class="clothing_category_specific">sportcoats</span> where the...</p>
+												</div>
+												<div class="col-7" data-stupid_master="sportcoat" data-clothing_type="jacket">
+													<div class="row summary measurement-info" data-measurement_type="chest_flat">
+														<p class="mb-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-type">chest (armpit to armpit, taken flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="shoulders">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;
+															<span class="summary measurement-type">the shoulders</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="waist_flat">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">jacket waist (measured flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="sleeve">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">sleeve (from shoulder seam to cuff)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="length">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">length (back of collar to hem)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">Any listings for <span class="clothing_category_specific">coats and jackets</span> (overcoats to leather jackets) should have...</p>
+												</div>
+												<div class="col-7" data-stupid_master="coats_and_jackets" data-clothing_type="jacket">
+													<div class="row summary measurement-info" data-measurement_type="chest_flat">
+														<p class="mb-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-type">chest (armpit to armpit, taken flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="shoulders">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;
+															<span class="summary measurement-type">the shoulders</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="sleeve">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">sleeve (from shoulder seam to cuff)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">For <span class="clothing_category_specific">dress shirts</span>, the the listings should fit like...</p>
+												</div>
+												<div class="col-7" data-stupid_master="dress_shirt" data-clothing_type="shirt">
+													<div class="row summary measurement-info" data-measurement_type="chest_flat">
+														<p class="mb-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-type">chest (armpit to armpit, taken flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="shoulders">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;
+															<span class="summary measurement-type">the shoulders</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="sleeve">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">sleeve (from shoulder seam to cuff)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">And for <span class="clothing_category_specific">casual shirts</span>, we have...</p>
+												</div>
+												<div class="col-7" data-stupid_master="casual_shirt" data-clothing_type="shirt">
+													<div class="row summary measurement-info" data-measurement_type="chest_flat">
+														<p class="mb-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-type">chest (armpit to armpit, taken flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="shoulders">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;
+															<span class="summary measurement-type">the shoulders</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="sleeve">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">sleeve (from shoulder seam to cuff)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">Similar to suit pants, the listings for <span class="clothing_category_specific">pant separates</span> should fit like...</p>
+												</div>
+												<div class="col-7" data-stupid_master="pant" data-clothing_type="pant">
+													<div class="row summary measurement-info" data-measurement_type="waist_flat">
+														<p class="my-0">
+															a&#32;
+															<span class="summary measurement-type">waist (measured flat)</span>
+															&#32;that measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="hips_flat">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">hips (measured flat)</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="inseam">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">inseam</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="rise">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">rise</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="cuff_width">
+														<p class="my-0">
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">cuff width (measured flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="row summary clothing-category-row pb-2">
+												<div class="col-4 summary clothing_category_detail_info">
+													<p class="font-italic text-right">Finally, the measurements for <span class="clothing_category_specific">sweaters</span> should match...</p>
+												</div>
+												<div class="col-7" data-stupid_master="sweater" data-clothing_type="sweater">
+													<div class="row summary measurement-info" data-measurement_type="chest_flat">
+														<p class="mb-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-type">chest (armpit to armpit, taken flat)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="shoulders">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;
+															<span class="summary measurement-type">the shoulders</span>
+															&#32;measure from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+													<div class="row summary measurement-info" data-measurement_type="sleeve">
+														<p class="my-0">
+															<!-- <span class="summary measurement-type">$MEASUREMENT_TYPE_PLACEHOLDER</span> -->
+															<span class="summary measurement-conjunction">and</span>
+															&#32;where the&#32;
+															<span class="summary measurement-type">sleeve (from shoulder seam to cuff)</span>
+															&#32;measures from&#32;
+															<span class="summary measurement-value" data-measurement_value_type="start">$START_PLACEHOLDER</span>
+															&#32;to&#32;
+															<span class="summary measurement-value" data-measurement_value_type="end">$START_PLACEHOLDER</span>
+															<!-- <span class="summary measurement-conjunction">&#32;and</span> -->
+														</p>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+						</section>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+<footer class="footer"></footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./scripts/script.js"></script>
+</body>
+</html>
