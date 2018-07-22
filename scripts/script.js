@@ -39,15 +39,15 @@ steps.each(function(i) {
 		// $(this).change(function() {checkInputsAndModifyButton(thisFieldInputs, thisFieldNextButton)});
 		$(this).change(function() {
 			allFilled = true;
+			nextBttn = $("#step" + i + "Next");
+			submitBttn = $("#submitFormButton");
 			$("#step" + i + " input").each(function() {
-				nextBttn = $("#step" + i + "Next");
-				submitBttn = $("#submitFormButton");
 				if ($(this).val() == "") {
 					// nextBttn = $("#step" + i + "Next");
 					nextBttn.prop('disabled', true);
 					nextBttn.addClass("disabled");
 					submitBttn.prop('disabled', true);
-					submitButtn.addClass('disabled');
+					submitBttn.addClass('disabled');
 					allFilled = false;
 					return false;
 				}
@@ -57,7 +57,7 @@ steps.each(function(i) {
 				nextBttn.prop('disabled', false);
 				nextBttn.removeClass("disabled");
 				submitBttn.prop('disabled', false);
-				submitButtn.removeClass('disabled');
+				submitBttn.removeClass('disabled');
 			}
 			// console.log(allFilled)
 		});
@@ -92,7 +92,7 @@ function createDevButton(i) {
 	$("#" + stepName + "Populate").bind("click", function(e) {
 		updateSummaryPage();
 		$("#" + stepName + " input").each(function() {
-			// console.log($(this));
+			console.log($(this));
 			$(this).val(22);
 			$(this).change();
 		});
